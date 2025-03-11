@@ -1,39 +1,63 @@
-/* iran sans for heading */
+/* Light (font-weight: 300) */
 @font-face {
-  font-family: "iranSans";
-  src: url("../assets//fonts//Iranian\ Sans.ttf");
-}
-
-/* vazir for content */
-
-/* thin(font-weight:100) */
-@font-face {
-  font-family: "vazir";
-  src: url("../assets/fonts/Vazir-Thin-FD-WOL.ttf") format("ttf");
-  font-weight: 100;
-  font-style: normal;
-}
-
-/* light(font-weight:300) */
-@font-face {
-  font-family: "vazir";
-  src: url("../assets/fonts/Vazir-Light-FD-WOL.ttf") format("ttf");
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal;
 }
 
-/* medium(font-weight:400) */
+/* ExtraLight (font-weight: 200) */
 @font-face {
-  font-family: "vazir";
-  src: url("../assets/fonts/Vazir-Medium-FD-WOL.ttf") format("ttf");
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Regular (font-weight: 400) */
+@font-face {
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
 
-/* bold(font-weight:700) */
+/* Medium (font-weight: 500) */
 @font-face {
-  font-family: "vazir";
-  src: url("../assets/fonts/Vazir-Bold-FD-WOL.ttf") format("ttf");
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* SemiBold (font-weight: 600) */
+@font-face {
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* Bold (font-weight: 700) */
+@font-face {
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-Bold.woff2") format("woff2");
   font-weight: 700;
+  font-style: normal;
+}
+
+/* ExtraBold (font-weight: 800) */
+@font-face {
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Thin (font-weight: 100) */
+@font-face {
+  font-family: "estedad";
+  src: url("../assets/fonts/Estedad-Thin.woff2") format("woff2");
+  font-weight: 100;
   font-style: normal;
 }
