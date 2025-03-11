@@ -1,4 +1,4 @@
-@import url("./fonts.css");
+@import "./fonts.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +6,6 @@
 @layer base {
   html,
   body {
-    font-family: "vazir", "sans-serif";
+    font-family: "estedad", "sans-serif";
   }
 }

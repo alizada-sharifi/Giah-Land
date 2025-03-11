@@ -3,6 +3,9 @@ const ROUTES = {
   REGISTER: "/signup",
   HOME: "/",
   ABOUT: "/about",
+  DOCTOR: "/doctor",
+  BLOG: "/blog",
+  CONTACTUS: "/contactUs",
 };
 
 export default ROUTES;

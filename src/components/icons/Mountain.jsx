@@ -4,8 +4,8 @@ import { cn } from "../../helpers/common";
 function Mountain(className, ...props) {
   return (
     <svg
-      width="176"
-      height="176"
+      width="300"
+      height="300"
       viewBox="0 0 610 610"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

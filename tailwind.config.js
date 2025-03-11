@@ -4,8 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        iranSans: ["iranSans", "sans-serif"],
-        vazir: ["vazir", "sans-serif"],
+        estedad: ["estedad", "sans-serif"],
       },
       colors: {
         primary: {
