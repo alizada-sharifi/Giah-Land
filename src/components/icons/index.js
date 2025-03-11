@@ -7,3 +7,7 @@ export { default as Enter } from "./Enter";
 export { default as Linkedin } from "./Linkedin";
 export { default as Telegram } from "./Telegram";
 export { default as Instagram } from "./Instagram";
+export { default as MobileAuth } from "./MobileAuth";
+export { default as Email } from "./Email";
+export { default as Key } from "./Key";
+export { default as User } from "./User";

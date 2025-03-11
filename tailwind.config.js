@@ -39,8 +39,8 @@ export default {
           1300: "#121212",
         },
         error: {
-          light: "#ED2E2E",
-          extralight: "#FFF2F2",
+          DEFAULT: "#ED2E2E",
+          light: "#FFF2F2",
         },
         success: {
           DEFAULT: "#00966D",

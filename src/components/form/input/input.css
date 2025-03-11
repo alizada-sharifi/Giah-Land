@@ -1,0 +1,23 @@
+input {
+  outline: none;
+  transition: 0.5s ease;
+}
+
+label {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 60px;
+  pointer-events: none;
+  transition: 0.5s ease;
+}
+
+input:focus ~ label,
+input:valid ~ label {
+  top: 1px;
+  font-size: 0.8em;
+  background: #fff;
+  padding: 0 6px;
+  color: #417f56;
+}
