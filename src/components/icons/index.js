@@ -4,3 +4,6 @@ export { default as Close } from "./Close";
 export { default as Search } from "./Search";
 export { default as ShoppingCart } from "./ShoppingCart";
 export { default as Enter } from "./Enter";
+export { default as Linkedin } from "./Linkedin";
+export { default as Telegram } from "./Telegram";
+export { default as Instagram } from "./Instagram";
