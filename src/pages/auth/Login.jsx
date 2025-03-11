@@ -1,8 +1,6 @@
 import AuthLayout from "../../layouts/AuthLayout";
 import Input from "../../components/form/Input";
 import Button from "../../components/Button";
-
-// import useForm, { FormProvider } from "../../hooks/UseForm";
 import UseForm, { FormProvider } from "../../hooks/useForm";
 
 import { Link } from "react-router-dom";

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import registerSchema from "../../schemas/registerSchema";
 import AuthLayout from "../../layouts/AuthLayout";
-import UseForm, { FormProvider } from "../../hooks/UseForm";
+import UseForm, { FormProvider } from "../../hooks/useForm";
 import Input from "../../components/form/Input";
 import { Button } from "../../components";
 import { Email, Key, User } from "../../components/icons";
