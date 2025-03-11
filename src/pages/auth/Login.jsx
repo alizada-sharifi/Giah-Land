@@ -1,14 +1,17 @@
 import AuthLayout from "../../layouts/AuthLayout";
 import Input from "../../components/form/Input";
 import Button from "../../components/Button";
-import useForm, { FormProvider } from "../../hooks/UseForm";
+
+// import useForm, { FormProvider } from "../../hooks/UseForm";
+import UseForm, { FormProvider } from "../../hooks/useForm";
+
 import { Link } from "react-router-dom";
 import { loginSchema } from "../../schemas";
 import { useNavigate } from "react-router-dom";
 import { Email, Key } from "../../components/icons";
 
 function Login() {
-  const { handleSubmit, ...methods } = useForm(loginSchema);
+  const { handleSubmit, ...methods } = UseForm(loginSchema);
   const navigate = useNavigate();
 
   function onSubmit(data) {
