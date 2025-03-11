@@ -4,6 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import ROUTES from "../../../router/routePath";
 import { cn } from "../../../helpers/common";
 import { Enter, Search, ShoppingCart } from "../../icons";
+import { headerLists } from "../../../data/headerLists";
 
 function Header() {
   return (
@@ -21,66 +22,30 @@ function Header() {
           </div>
 
           <nav className="gap-4 items-center  hidden md:flex">
-            <NavLink
-              to={ROUTES.HOME}
-              className={({ isActive }) =>
-                cn("text-base text-neutral-1300", {
-                  "text-primary font-semibold": isActive,
-                })
-              }
-            >
-              صفحه اصلی
-            </NavLink>
-            <NavLink
-              to={ROUTES.DOCTOR}
-              className={({ isActive }) =>
-                cn("text-base text-neutral-1300", {
-                  "text-primary font-semibold": isActive,
-                })
-              }
-            >
-              گیاه پزشک
-            </NavLink>
-            <NavLink
-              to={ROUTES.BLOG}
-              className={({ isActive }) =>
-                cn("text-base text-neutral-1300", {
-                  "text-primary font-semibold": isActive,
-                })
-              }
-            >
-              وبلاگ
-            </NavLink>
-            <NavLink
-              to={ROUTES.CONTACTUS}
-              className={({ isActive }) =>
-                cn("text-base text-neutral-1300", {
-                  "text-primary font-semibold": isActive,
-                })
-              }
-            >
-              تماس با ما
-            </NavLink>
-            <NavLink
-              to={ROUTES.ABOUT}
-              className={({ isActive }) =>
-                cn("text-base text-neutral-1300", {
-                  "text-primary font-semibold": isActive,
-                })
-              }
-            >
-              درباره ما
-            </NavLink>
+            {headerLists.map((item, index) => {
+              return (
+                <NavLink key={index}
+                  to={item.href}
+                  className={({ isActive }) =>
+                    cn("text-base text-neutral-1300", {
+                      "text-primary font-semibold": isActive,
+                    })
+                  }
+                >
+                  {item.name}
+                </NavLink>
+              );
+            })}
           </nav>
 
           <div className="flex items-center gap-4">
-            <button className="hidden sm:block border-2 border-primary p-3 rounded-xl">
+            <button className="hidden sm:block border-2 border-primary p-2 rounded-xl">
               <Search />
             </button>
             <NavLink
               to="/cart"
               className={({ isActive }) =>
-                cn("text-base  border-2 border-primary p-3 rounded-xl ", {
+                cn("text-base  border-2 border-primary p-2 rounded-xl ", {
                   "": isActive,
                 })
               }
@@ -91,7 +56,7 @@ function Header() {
               to="/login"
               className={({ isActive }) =>
                 cn(
-                  "text-base text-primary border-2 border-primary p-3 md:p-2 rounded-xl flex items-center gap-2 ",
+                  "text-base text-primary border-2 border-primary p-2 md:py-1 md:px-2 rounded-xl flex items-center gap-2 ",
                   {
                     "bg-primary": isActive,
                   }
