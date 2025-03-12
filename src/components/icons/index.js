@@ -11,3 +11,7 @@ export { default as MobileAuth } from "./MobileAuth";
 export { default as Email } from "./Email";
 export { default as Key } from "./Key";
 export { default as User } from "./User";
+export { default as LeftArrow } from "./LeftArrow";
+export { default as CreditCart } from "./CreditCart";
+export { default as Verified } from "./Verified";
+export { default as Truck } from "./Truck";
