@@ -1,8 +1,19 @@
 import mobileBannerImg from "../assets/images/banner-img.png";
 import desktopBannerImg from "../assets/images/banner-img2.png";
-import { Button, ServiceItem } from "../components";
+import { Button, ServiceContainer, ServiceItem } from "../components";
 import { LeftArrow } from "../components/icons";
 import { services } from "../data/services";
+import img1 from "../assets/images/bg.png";
+import img2 from "../assets/images/img2.png";
+import Container from "../components/grass/Container";
+import { slides } from "../data/apartmantGrasses";
+import Item2 from "../components/grass/Item2";
+import Slider from "../components/Slider";
+import { SwiperSlide } from "swiper/react";
+import { grasses } from "../data/grasses";
+import { slide } from "../data/ornamental";
+import { grasses2 } from "../data/grasses2";
+import { slides2 } from "../data/gift";
 
 function Home() {
   const plantNumber = [
@@ -78,6 +89,48 @@ function Home() {
             return <ServiceItem {...item} key={index} />;
           })}
         </div>
+
+        <div className="flex flex-col md:flex-row gap-10 items-center justify-between mt-10">
+          <img
+            src={img1}
+            alt="grass image"
+            className="w-full md:w-1/2 h-32 md:h-60 rounded-xl md:rounded-2xl object-cover"
+          />
+          <img
+            src={img2}
+            alt="grass image"
+            className="w-full md:w-1/2 h-32 md:h-60 rounded-xl md:rounded-2xl object-cover"
+          />
+        </div>
+
+        {/* ============== aparatmant grasses section ================= */}
+        <Container header={"گیاهان آپارتمانی"} slides={slides} />
+
+        <Slider>
+          {grasses.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex gap-10 bg-transparent items-center justify-center">
+                <Item2 bg={slide.img} title={slide.title} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Slider>
+
+        <ServiceContainer />
+
+        <Container header={"گیاهان تزئینی"} slides={slide} />
+
+        <Slider>
+          {grasses2.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div className="flex gap-10 bg-transparent items-center justify-center">
+                <Item2 bg={slide.img} title={slide.title} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Slider>
+
+        <Container header={"گیاهان کادویی"} slides={slides2} />
       </div>
     </>
   );

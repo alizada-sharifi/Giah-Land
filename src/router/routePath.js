@@ -6,6 +6,9 @@ const ROUTES = {
   DOCTOR: "/doctor",
   BLOG: "/blog",
   CONTACTUS: "/contactUs",
+  // PROFILE: (username = ":username") => `/profile/${username}`,
+  PROFILE: "/profile",
+  MESSAGES: "/messages",
 };
 
 export default ROUTES;
