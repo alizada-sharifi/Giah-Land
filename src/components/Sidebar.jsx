@@ -3,7 +3,7 @@ import img from "../assets/images/bg.png";
 import { Email, Medication, User } from "./icons";
 import ROUTES from "../router/routePath";
 import { cn } from "../helpers/common";
-import { Button } from "./";
+import { Button, SignOut } from "./";
 
 function Sidebar() {
   const sidebarList = [
@@ -63,9 +63,7 @@ function Sidebar() {
         })}
       </nav>
 
-      <Button className="flex items-center gap-2 bg-error-light text-error hover:bg-error-ligh">
-        <span>خروج از حساب کاربری</span>
-      </Button>
+      <SignOut />
     </div>
   );
 }
