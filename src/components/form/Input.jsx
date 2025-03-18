@@ -7,6 +7,7 @@ function Input({
   type = "text",
   className = "",
   icon: Icon,
+  isDisabled,
 }) {
   const {
     register,
@@ -27,6 +28,7 @@ function Input({
               "border-error focus:border-error": errors[name],
             }
           )}
+          disabled={isDisabled}
         />
         <Icon className={"absolute top-[28%] right-3 "} />
       </div>

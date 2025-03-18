@@ -9,7 +9,7 @@ import { Email, Key, User } from "../../components/icons";
 function Register() {
   const { handleSubmit, ...methods } = UseForm(registerSchema);
 
-  function onSubmit(data) {
+  function onSubmit(data) { 
     console.log("data", data);
   }
 

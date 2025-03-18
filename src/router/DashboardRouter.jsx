@@ -1,4 +1,4 @@
-import { Doctor, Profile } from "../pages";
+import { Dashboard, Doctor, Profile } from "../pages";
 import ROUTES from "./routePath";
 
 const DashboardRouter = [
@@ -9,6 +9,10 @@ const DashboardRouter = [
   {
     path: ROUTES.DOCTOR,
     element: <Doctor />,
+  },
+  {
+    path: ROUTES.DASHBOARD,
+    element: <Dashboard />,
   },
 ];
 

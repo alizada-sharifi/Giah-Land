@@ -3,9 +3,9 @@ import img from "../assets/images/bg.png";
 import { Email, Medication, User } from "./icons";
 import ROUTES from "../router/routePath";
 import { cn } from "../helpers/common";
-import { Button, SignOut } from "./";
+import { SignOut } from "./";
 
-function Sidebar() {
+function Sidebar({ className }) {
   const sidebarList = [
     {
       icon: User,
@@ -24,7 +24,12 @@ function Sidebar() {
     },
   ];
   return (
-    <div className=" lg:w-1/5 h-screen md:border-l border-neutral-300 pl-6 space-y-16 ">
+    <div
+      className={cn(
+        "lg:w-1/5 h-screen md:border-l border-neutral-300 pl-6 space-y-16",
+        className
+      )}
+    >
       <div className="flex gap-3 items-center">
         <img src={img} alt="user Image" className="size-14 rounded-full" />
         <div className="text-sm md:text-base space-y-1">

@@ -9,6 +9,7 @@ const ROUTES = {
   // PROFILE: (username = ":username") => `/profile/${username}`,
   PROFILE: "/profile",
   MESSAGES: "/messages",
+  DASHBOARD: "/dashboard",
 };
 
 export default ROUTES;

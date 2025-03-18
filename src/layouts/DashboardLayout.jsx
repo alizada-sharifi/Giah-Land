@@ -8,7 +8,7 @@ function DashboardLayout({ children, className }) {
       <div className="w-full h-screen overflow-y-hidden ">
         <Header />
         <main className={cn("w-full flex gap-10 container mt-10", className)}>
-          <Sidebar />
+          <Sidebar className="hidden lg:block" />
           {children}
         </main>
       </div>

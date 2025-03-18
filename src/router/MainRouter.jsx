@@ -1,5 +1,5 @@
 import { MainLayout } from "../layouts";
-import { Doctor, Home, NotFound } from "../pages";
+import {  Home, NotFound } from "../pages";
 import ROUTES from "./routePath";
 
 const MainRouter = [
@@ -14,10 +14,6 @@ const MainRouter = [
       {
         path: "*",
         element: <NotFound />,
-      },
-      {
-        path: ROUTES.DOCTOR,
-        element: <Doctor />,
       },
     ],
   },

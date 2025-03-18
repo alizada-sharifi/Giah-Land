@@ -1,11 +1,7 @@
-
+import { DashboardLayout } from "../../layouts";
 
 function Doctor() {
-  return (
-    <div className="container">
-     
-    </div>
-  );
+  return <DashboardLayout>fhskf</DashboardLayout>;
 }
 
 export default Doctor;
