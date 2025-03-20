@@ -33,7 +33,7 @@ function Profile() {
         <h3 className="border-r-[3px] pr-2 border-primary font-medium text-base text-neutral-1300">
           مشخصات حساب کاربری
         </h3>
-        <div className="p-4 lg:border  border-neutral-300 rounded-2xl">
+        <div className="p-4 lg:border  border-neutral-300 rounded-2xl mt-10">
           <div className="flex gap-4 md:gap-10 items-center">
             <img src={user} alt="user Image" className="size-14 rounded-full" />
             <Button className="w-auto text-xs md:text-sm px-2 md:px-6 py-3  ">

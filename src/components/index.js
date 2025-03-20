@@ -4,3 +4,4 @@ export { default as Sidebar } from "./Sidebar";
 export { default as ServiceContainer } from "./service/ServiceContainer";
 export { default as Slider } from "./Slider";
 export { default as SignOut } from "./SignOut";
+export { default as MessageItem } from "./MessageItem";

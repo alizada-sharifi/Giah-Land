@@ -28,3 +28,5 @@ export { default as Tree3 } from "./Tree3";
 export { default as Tree4 } from "./Tree4";
 export { default as Location } from "./Location";
 export { default as Phone } from "./Phone";
+export { default as Upload } from "./Upload";
+export { default as Trash } from "./Trash";
