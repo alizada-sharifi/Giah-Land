@@ -1,12 +1,23 @@
 import React from "react";
 import MobileNavbar from "./MobileNavbar";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import ROUTES from "../../../router/routePath";
 import { cn } from "../../../helpers/common";
 import { Enter, Search, ShoppingCart } from "../../icons";
 import { headerLists } from "../../../data/headerLists";
+import useAuthStore from "../../../store/authStore";
 
 function Header() {
+  const navigate = useNavigate();
+  const { isLoggedIn, username } = useAuthStore();
+
+  const handleRedirect = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      navigate("/login");
+    }
+  };
+
   return (
     <header className="py-8 shadow">
       <div className="container">
@@ -24,7 +35,8 @@ function Header() {
           <nav className="gap-4 items-center  hidden md:flex">
             {headerLists.map((item, index) => {
               return (
-                <NavLink key={index}
+                <NavLink
+                  key={index}
                   to={item.href}
                   className={({ isActive }) =>
                     cn("text-base text-neutral-1300", {
@@ -44,6 +56,7 @@ function Header() {
             </button>
             <NavLink
               to="/cart"
+              onClick={handleRedirect}
               className={({ isActive }) =>
                 cn("text-base  border-2 border-primary p-2 rounded-xl ", {
                   "": isActive,
@@ -52,22 +65,31 @@ function Header() {
             >
               <ShoppingCart />
             </NavLink>
-            <NavLink
-              to="/login"
-              className={({ isActive }) =>
-                cn(
-                  "text-base text-primary border-2 border-primary p-2 md:py-1 md:px-2 rounded-xl flex items-center gap-2 ",
-                  {
-                    "bg-primary": isActive,
-                  }
-                )
-              }
-            >
-              <Enter />
-              <span className="text-lg text-primary hidden md:block p-0 ">
-                ورود/ثبت نام
-              </span>
-            </NavLink>
+            {isLoggedIn ? (
+              <NavLink to="/dashboard" className="flex items-center gap-1">
+                <div className="size-10 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-white font-semibold ">
+                  {username.charAt(0)}
+                </div>
+                <span className="hidden lg:block">سلام؛ {username}</span>
+              </NavLink>
+            ) : (
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  cn(
+                    "text-base text-primary border-2 border-primary p-2 md:py-1 md:px-2 rounded-xl flex items-center gap-2",
+                    {
+                      "bg-primary": isActive,
+                    }
+                  )
+                }
+              >
+                <Enter />
+                <span className="text-lg text-primary hidden md:block p-0 ">
+                  ورود
+                </span>
+              </NavLink>
+            )}
           </div>
         </div>
 

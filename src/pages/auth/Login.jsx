@@ -2,18 +2,19 @@ import AuthLayout from "../../layouts/AuthLayout";
 import Input from "../../components/form/Input";
 import Button from "../../components/Button";
 import UseForm, { FormProvider } from "../../hooks/useForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../../schemas";
-import { useNavigate } from "react-router-dom";
-import { Email, Key } from "../../components/icons";
+import { Email, Key, User } from "../../components/icons";
+import useAuthStore from "../../store/authStore";
 
 function Login() {
   const { handleSubmit, ...methods } = UseForm(loginSchema);
   const navigate = useNavigate();
+  const login = useAuthStore((state) => state.login);
 
   function onSubmit(data) {
+    login(data.name);
     navigate("/");
-    console.log("data", data);
   }
 
   return (
@@ -30,6 +31,7 @@ function Login() {
             onSubmit={handleSubmit(onSubmit)}
           >
             <div className="mb-6 space-y-4">
+              <Input name="name" placeholder="نام" icon={User} />
               <Input name="email" placeholder="ایمیل" icon={Email} />
               <Input
                 name="password"
@@ -42,14 +44,6 @@ function Login() {
             <Button type="submit">ورود</Button>
           </form>
         </FormProvider>
-
-        <p className="text-center mt-4 text-sm text-neutral-1300 md:text-base">
-          حساب کاربری ندارید؟
-          <Link className="text-primary " to={"/signup"}>
-            <span> ثبت نام </span>
-          </Link>
-          کنید
-        </p>
       </div>
     </AuthLayout>
   );

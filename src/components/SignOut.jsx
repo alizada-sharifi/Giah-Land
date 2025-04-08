@@ -8,13 +8,26 @@ import { useState } from "react";
 import Button from "./Button";
 import { Close } from "./icons";
 import { useNavigate } from "react-router-dom";
+import useAuthStore from "../store/authStore";
+import useStore from "../store";
 
 function SignOut() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const handleLogout = () => {
-    navigate("/");
+  const logout = useAuthStore((state) => state.logout);
+  const { removeInfo } = useStore();
+
+  const deleteLocalstorage = () => {
+    localStorage.clear();
   };
+
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+    removeInfo();
+    deleteLocalstorage();
+  };
+
   return (
     <>
       <Button
@@ -27,9 +40,9 @@ function SignOut() {
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
-        className="fixed  inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
       >
-        <DialogPanel className="w-96 bg-white  rounded-xl shadow-lg">
+        <DialogPanel className="w-96 bg-white rounded-xl shadow-lg">
           <DialogTitle className="text-lg font-medium flex items-center justify-center relative rounded-t-xl py-5 bg-neutral-400 ">
             <span>خروج</span>
             <button
@@ -39,7 +52,7 @@ function SignOut() {
               <Close className={" fill-neutral-900"} />
             </button>
           </DialogTitle>
-          <Description className="py-8  text-center text-xs sm:text-sm text-neutral-1000 md:text-base px-4">
+          <Description className="py-8 text-center text-xs sm:text-sm text-neutral-1000 md:text-base px-4">
             آیا مایل به خروج از حساب کاربری خود هستید؟
           </Description>
 
@@ -62,4 +75,5 @@ function SignOut() {
     </>
   );
 }
+
 export default SignOut;

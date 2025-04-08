@@ -8,7 +8,6 @@ const useStore = create((set) => ({
   address: "",
   phoneNo: "",
   saveInfo: ({ name, family, mobileNo, email, address, phoneNo }) => {
-    // ذخیره در Zustand
     set(() => ({
       name,
       family,
@@ -18,7 +17,6 @@ const useStore = create((set) => ({
       phoneNo,
     }));
 
-    // ذخیره در LocalStorage
     localStorage.setItem(
       "userInfo",
       JSON.stringify({ name, family, mobileNo, email, address, phoneNo })
