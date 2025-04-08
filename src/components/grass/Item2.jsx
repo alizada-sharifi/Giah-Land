@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Button from "../Button";
 import { LeftArrow } from "../icons";
 
@@ -12,7 +13,7 @@ function Item2({ bg, title }) {
         {title}
       </h3>
       <Button className="absolute bottom-2 right-6 w-auto  bg-transparent hover:bg-transparent border border-white rounded-xl flex items-center gap-3 ">
-        <span className="text-base md:text-lg ">خرید {title}</span>
+        <Link className="text-base md:text-lg ">خرید {title}</Link>
         <LeftArrow className={"fill-white"} />
       </Button>
     </div>

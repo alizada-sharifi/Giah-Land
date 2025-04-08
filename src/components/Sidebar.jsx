@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
-import img from "../assets/images/bg.png";
 import { Email, Medication, User } from "./icons";
 import ROUTES from "../router/routePath";
 import { cn } from "../helpers/common";
 import { SignOut } from "./";
+import useStore from "../store";
 
 function Sidebar({ className }) {
   const sidebarList = [
@@ -23,6 +23,7 @@ function Sidebar({ className }) {
       href: ROUTES.MESSAGES,
     },
   ];
+  const { name, family, mobileNo } = useStore();
   return (
     <div
       className={cn(
@@ -31,12 +32,16 @@ function Sidebar({ className }) {
       )}
     >
       <div className="flex gap-3 items-center">
-        <img src={img} alt="user Image" className="size-14 rounded-full" />
+        <div className="size-10 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-white font-semibold ">
+          {name.charAt(0)}
+        </div>
+
         <div className="text-sm md:text-base space-y-1">
-          <p className=" font-medium md:font-semibold text-neutral-1300">
-            فرهاد رئوفی
-          </p>
-          <p className="text-neutral-900">۰۹۰۳۷۰۲۹۱۲۱</p>
+          <div className=" font-medium md:font-semibold text-neutral-1300 flex gap-1">
+            <span>{name}</span>
+            <span>{family}</span>
+          </div>
+          <p className="text-neutral-900">{mobileNo}</p>
         </div>
       </div>
 

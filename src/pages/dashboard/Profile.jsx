@@ -1,31 +1,99 @@
 import { DashboardLayout } from "../../layouts";
-import user from "../../assets/images/bg.png";
+import useStore from "../../store";
 import { Button } from "../../components";
-import UseForm, { FormProvider } from "../../hooks/useForm";
-import { profileSchema } from "../../schemas";
-import Input from "../../components/form/Input";
-import {
-  Email,
-  Location,
-  MobileAuth,
-  Phone,
-  User,
-} from "../../components/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Profile() {
-  const { handleSubmit, ...methods } = UseForm(profileSchema);
-  function onSubmit(data) {
-    console.log("data", data);
-  }
-  const [isDisabled, setIsDisabled] = useState(true);
+  const { name, family, mobileNo, email, address, phoneNo, saveInfo } =
+    useStore();
 
-  const cancelHandler = () => {
-    setIsDisabled(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    const data = readFromLocalstorage("state");
+    if (
+      data?.name &&
+      data?.family &&
+      data?.email &&
+      data?.mobileNo &&
+      data?.phoneNo &&
+      data?.address
+    ) {
+      saveInfo(data);
+    }
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (name && email && family && mobileNo && address && phoneNo) {
+      saveToLocalstorage({ name, family, email, mobileNo, phoneNo, address });
+    }
+  }, [name, email, family, mobileNo, phoneNo, address]);
+
+  const saveToLocalstorage = (data) => {
+    localStorage.setItem("state", JSON.stringify(data));
   };
-  const saveHandler = () => {
-    setIsDisabled(true);
+
+  const readFromLocalstorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
   };
+
+  const handleChange = (e) => {
+    const { name: fieldName, value } = e.target;
+    saveInfo({
+      name,
+      family,
+      mobileNo,
+      email,
+      address,
+      phoneNo,
+      [fieldName]: value,
+    });
+
+    setErrors((prev) => ({ ...prev, [fieldName]: "" }));
+  };
+
+  const validate = () => {
+    const newErrors = {};
+    if (!name) newErrors.name = "نام الزامی است.";
+    if (!family) newErrors.family = "نام خانوادگی الزامی است.";
+    if (!mobileNo || !/^\d{10}$/.test(mobileNo))
+      newErrors.mobileNo = "شماره موبایل باید 10 رقم باشد.";
+    if (!phoneNo || !/^\d+$/.test(phoneNo))
+      newErrors.phoneNo = "تلفن ثابت باید فقط شامل عدد باشد.";
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+      newErrors.email = "ایمیل معتبر وارد کنید.";
+    if (!address) newErrors.address = "آدرس الزامی است.";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    saveToLocalstorage({
+      name,
+      family,
+      mobileNo,
+      email,
+      address,
+      phoneNo,
+    });
+  };
+
+  if (!isLoaded) return <div className="p-4">در حال بارگذاری اطلاعات...</div>;
+
+  const fields = [
+    { name: "name", placeholder: "نام", value: name },
+    { name: "family", placeholder: "نام خانوادگی", value: family },
+    { name: "mobileNo", placeholder: "شماره موبایل", value: mobileNo },
+    { name: "email", placeholder: "ایمیل", value: email },
+    { name: "address", placeholder: "آدرس", value: address },
+    { name: "phoneNo", placeholder: "تلفن ثابت", value: phoneNo },
+  ];
 
   return (
     <DashboardLayout>
@@ -33,89 +101,38 @@ function Profile() {
         <h3 className="border-r-[3px] pr-2 border-primary font-medium text-base text-neutral-1300">
           مشخصات حساب کاربری
         </h3>
-        <div className="p-4 lg:border  border-neutral-300 rounded-2xl mt-10">
-          <div className="flex gap-4 md:gap-10 items-center">
-            <img src={user} alt="user Image" className="size-14 rounded-full" />
-            <Button className="w-auto text-xs md:text-sm px-2 md:px-6 py-3  ">
-              ویرایش با تصویر جدید
-            </Button>
-            <Button className="w-auto text-xs md:text-sm px-2 md:px-6 py-3 bg-neutral-200 rounded-xl hover:bg-transparent border text-primary  ">
-              حذف تصویر
-            </Button>
-          </div>
 
-          <div className=" mt-10">
-            <FormProvider {...methods}>
-              <form
-                noValidate
-                onSubmit={handleSubmit(onSubmit)}
-                className="grid grid-cols-1 md:grid-cols-2 gap-8"
-              >
-                <Input
-                  name="name"
-                  placeholder="name"
-                  icon={User}
-                  isDisabled={isDisabled}
+        <div className="p-4 lg:border border-neutral-300 rounded-2xl mt-10">
+          <form
+            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            onSubmit={handleSubmit}
+          >
+            {fields.map((field) => (
+              <div key={field.name}>
+                <input
+                  type="text"
+                  name={field.name}
+                  placeholder={field.placeholder}
+                  value={field.value}
+                  onChange={handleChange}
+                  className={`block w-full py-2 border rounded-lg pl-3 pr-9 outline-none focus:border-primary ${
+                    errors[field.name] ? "border-red-500" : "border-neutral-600"
+                  }`}
                 />
-                <Input
-                  name="familyName"
-                  placeholder="family name"
-                  icon={User}
-                  isDisabled={isDisabled}
-                />
-                <Input
-                  name="phoneNumber"
-                  placeholder="phone"
-                  icon={MobileAuth}
-                  isDisabled={isDisabled}
-                />
-                <Input
-                  name="email"
-                  placeholder="ایمیل"
-                  icon={Email}
-                  isDisabled={isDisabled}
-                />
-                <Input
-                  name="address"
-                  placeholder="آدرس منزل"
-                  icon={Location}
-                  isDisabled={isDisabled}
-                />
-                <Input
-                  name="phone"
-                  placeholder="تلفن منزل"
-                  icon={Phone}
-                  isDisabled={isDisabled}
-                />
-              </form>
-            </FormProvider>
-            <div className="flex justify-center text-sm md:text-base font-medium mt-7">
-              {isDisabled ? (
-                <Button
-                  className="w-auto bg-transparent text-primary border border-primary hover:bg-transparent"
-                  onClick={() => setIsDisabled(false)}
-                >
-                  ویرایش اطلاعات شخصی
-                </Button>
-              ) : (
-                <div className="flex items-center justify-between md:justify-center gap-x-4 w-full  ">
-                  <Button
-                    className="w-auto bg-transparent hover:bg-transparent text-primary border border-primary md:px-10"
-                    onClick={cancelHandler}
-                  >
-                    انصراف
-                  </Button>
-                  <Button
-                    className="w-auto"
-                    onClick={saveHandler}
-                    type="submit"
-                  >
-                    ذخیره اطلاعات
-                  </Button>
-                </div>
-              )}
+                {errors[field.name] && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {errors[field.name]}
+                  </p>
+                )}
+              </div>
+            ))}
+
+            <div className="mr-auto">
+              <Button className="w-auto" type="submit">
+                ذخیره اطلاعات
+              </Button>
             </div>
-          </div>
+          </form>
         </div>
       </div>
     </DashboardLayout>

@@ -8,6 +8,7 @@ function Input({
   className = "",
   icon: Icon,
   isDisabled,
+  ...props
 }) {
   const {
     register,
@@ -29,8 +30,9 @@ function Input({
             }
           )}
           disabled={isDisabled}
+          {...props}
         />
-        <Icon className={"absolute top-[28%] right-3 "} />
+        {Icon && <Icon className="absolute top-[28%] right-3" />}
       </div>
 
       {errors[name] && (

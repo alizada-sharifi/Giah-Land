@@ -11,7 +11,7 @@ function Item({ price, title, img }) {
         <span>قیمت</span>
         <span>{price}</span>
       </div>
-      <Button>مشاهده بیشتر</Button>
+      <Button>افزودن به سبد خرید</Button>
     </div>
   );
 }
