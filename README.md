@@ -2,7 +2,7 @@
 
 Giahland is an innovative platform designed to make buying and selling plants easy and accessible online. Whether you're a plant enthusiast looking to expand your collection or a seller wanting to offer your plants to a broader audience, Giahland provides a user-friendly environment for all your plant-related needs.
 
-Built using modern technologies like ReactJS, Vite, Tailwind CSS, and Zustand, Giahland offers a seamless experience with fast performance, intuitive navigation, and responsive design. From browsing a wide variety of plants to securely managing your purchases and sales, Giahland makes online plant shopping a breeze.
+Built using modern technologies like ReactJS, Vite, Tailwind CSS, and Zustand, Giahland offers a seamless experience with fast performance, intuitive navigation, and responsive design. From browsing a wide variety of plants to securely managing your purchases and sales, Giahland makes online plant shopping a breeze.   
 
 # Enviroment
 

@@ -79,11 +79,7 @@ function Home() {
             </div>
           </div>
 
-          <img
-            src={desktopBannerImg}
-            alt=""
-            className=" hidden md:block w-1/2"
-          />
+          <img src={desktopBannerImg} className=" hidden md:block w-1/2" />
         </div>
 
         <div className="flex flex-col md:flex-row gap-10 mt-14 items-center justify-between">
