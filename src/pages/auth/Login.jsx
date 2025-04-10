@@ -7,7 +7,8 @@ import { loginSchema } from "../../schemas";
 import { Email, Key, User } from "../../components/icons";
 import useAuthStore from "../../store/authStore";
 import ROUTES from "../../router/routePath";
-import ShowToast from "../../helpers/showToast";
+
+import { ShowToast } from "../../helpers";
 
 function Login() {
   const { handleSubmit, ...methods } = UseForm(loginSchema);
