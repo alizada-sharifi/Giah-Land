@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect } from "react";
 import Button from "../../components/Button";
 import useStore from "../../store";
 import { DashboardLayout } from "../../layouts";
@@ -84,8 +82,6 @@ function Profile() {
       address,
       phoneNo,
     });
-
-    toast.success("اطلاعات با موفقیت ذخیره شد!");
   };
 
   if (!isLoaded) return <div className="p-4">در حال بارگذاری اطلاعات...</div>;
@@ -139,18 +135,6 @@ function Profile() {
           </form>
         </div>
       </div>
-
-      <ToastContainer
-        position="top-right"
-        autoClose={1000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={true}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </DashboardLayout>
   );
 }

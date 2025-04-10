@@ -6,15 +6,18 @@ import { cn } from "../../../helpers/common";
 import { Enter, Search, ShoppingCart } from "../../icons";
 import { headerLists } from "../../../data/headerLists";
 import useAuthStore from "../../../store/authStore";
+import ShowToast from "../../../helpers/ShowToast";
 
 function Header() {
-  const navigate = useNavigate();
   const { isLoggedIn, username } = useAuthStore();
-
-  const handleRedirect = (e) => {
-    if (!isLoggedIn) {
+  const navigate = useNavigate();
+  const handleNav = (e) => {
+    if (isLoggedIn) {
+      navigate(ROUTES.DOCTOR);
+    } else {
       e.preventDefault();
-      navigate("/login");
+
+      ShowToast("شما ابتدا باید وارد شوید", "error");
     }
   };
 
@@ -48,6 +51,17 @@ function Header() {
                 </NavLink>
               );
             })}
+            <NavLink
+              to={ROUTES.DOCTOR}
+              className={({ isActive }) =>
+                cn("text-base text-neutral-1300", {
+                  "text-primary font-semibold": isActive,
+                })
+              }
+              onClick={handleNav}
+            >
+              گیاه پزشک
+            </NavLink>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -56,7 +70,6 @@ function Header() {
             </button>
             <NavLink
               to="/cart"
-              onClick={handleRedirect}
               className={({ isActive }) =>
                 cn("text-base  border-2 border-primary p-2 rounded-xl ", {
                   "": isActive,
@@ -66,7 +79,7 @@ function Header() {
               <ShoppingCart />
             </NavLink>
             {isLoggedIn ? (
-              <NavLink to="/dashboard" className="flex items-center gap-1">
+              <NavLink to={ROUTES.PROFILE} className="flex items-center gap-1">
                 <div className="size-10 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center text-white font-semibold ">
                   {username.charAt(0)}
                 </div>

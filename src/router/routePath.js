@@ -8,6 +8,8 @@ const ROUTES = {
   PROFILE: "/profile",
   MESSAGES: "/messages",
   DASHBOARD: "/dashboard",
+  CART: "/cart",
+  SUCCESSFULLPAYMENT: "/success",
 };
 
 export default ROUTES;

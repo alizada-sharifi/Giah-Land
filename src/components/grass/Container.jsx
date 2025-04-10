@@ -13,7 +13,12 @@ function Container({ header, slides }) {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="flex gap-10 bg-transparent items-center justify-center">
-              <Item price={slide.price} title={slide.title} img={slide.img} />
+              <Item
+                price={slide.price}
+                title={slide.title}
+                img={slide.img}
+                id={slide.id}
+              />
             </div>
           </SwiperSlide>
         ))}

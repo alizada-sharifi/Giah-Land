@@ -26,6 +26,7 @@ function SignOut() {
     navigate("/");
     removeInfo();
     deleteLocalstorage();
+    window.location.reload();
   };
 
   return (

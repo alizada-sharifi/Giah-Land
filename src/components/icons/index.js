@@ -30,3 +30,5 @@ export { default as Location } from "./Location";
 export { default as Phone } from "./Phone";
 export { default as Upload } from "./Upload";
 export { default as Trash } from "./Trash";
+export { default as Empty } from "./Empty";
+export { default as Success } from "./Success";

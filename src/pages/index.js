@@ -4,4 +4,6 @@ export { default as Doctor } from "./dashboard/Doctor";
 export { default as Profile } from "./dashboard/Profile";
 export { default as Messages } from "./dashboard/Messages";
 export { default as Dashboard } from "./dashboard/Dashboard";
+export { default as Cart } from "./Cart";
 export { default as NotFound } from "./NotFound";
+export { default as SuccessfullPayment } from "./SuccessfullPayment";

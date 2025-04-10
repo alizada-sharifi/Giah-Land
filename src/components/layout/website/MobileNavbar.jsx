@@ -1,11 +1,25 @@
 import { useState } from "react";
 import { cn } from "../../../helpers/common";
 import { Menu, Close } from "../../icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ROUTES from "../../../router/routePath";
 import bg from "../../../assets/images/bg.png";
+import useAuthStore from "../../../store/authStore";
+import ShowToast from "../../../helpers/ShowToast";
+
 function MobileNavbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { isLoggedIn } = useAuthStore();
+  const navigate = useNavigate();
+  const handleNav = (e) => {
+    if (isLoggedIn) {
+      navigate(ROUTES.DOCTOR);
+    } else {
+      e.preventDefault();
+
+      ShowToast("شما ابتدا باید وارد شوید", "error");
+    }
+  };
   return (
     <>
       <button
@@ -58,6 +72,7 @@ function MobileNavbar() {
                   "text-primary": isActive,
                 })
               }
+              onClick={handleNav}
             >
               گیاه پزشک
             </NavLink>

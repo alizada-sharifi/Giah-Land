@@ -1,5 +1,5 @@
 import { MainLayout } from "../layouts";
-import {  Home, NotFound } from "../pages";
+import { Cart, Home, NotFound, SuccessfullPayment } from "../pages";
 import ROUTES from "./routePath";
 
 const MainRouter = [
@@ -11,6 +11,15 @@ const MainRouter = [
         index: true,
         element: <Home />,
       },
+      {
+        path: ROUTES.CART,
+        element: <Cart />,
+      },
+      {
+        path: ROUTES.SUCCESSFULLPAYMENT,
+        element: <SuccessfullPayment />,
+      },
+
       {
         path: "*",
         element: <NotFound />,

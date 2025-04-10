@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { loginSchema } from "../../schemas";
 import { Email, Key, User } from "../../components/icons";
 import useAuthStore from "../../store/authStore";
+import ROUTES from "../../router/routePath";
+import showToast from "../../helpers/showToast";
 
 function Login() {
   const { handleSubmit, ...methods } = UseForm(loginSchema);
@@ -14,7 +16,8 @@ function Login() {
 
   function onSubmit(data) {
     login(data.name);
-    navigate("/");
+    navigate(ROUTES.HOME);
+    showToast("خوش آمدید", "success");
   }
 
   return (

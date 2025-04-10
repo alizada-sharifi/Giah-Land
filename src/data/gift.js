@@ -5,28 +5,33 @@ import grass4 from "../assets/images/grass20.png";
 
 export const slides2 = [
   {
+    id: 5,
     title: "گیاه طبیعی بنت قنسول گلیتال",
-    price: "۱۷۶,۰۰۰ تومان",
+    price: "۱۷۶ افغانی ",
     img: grass1,
   },
   {
+    id: 6,
     title: "گیاه طبیعی آنتوریوم",
-    price: "۴۵۹,۰۰۰ تومان",
+    price: "۴۵۹ افغانی",
     img: grass2,
   },
   {
+    id: 7,
     title: "گیاه طبیعی بونسای پاچیرا",
-    price: "۸۸۰,۰۰۰ تومان",
+    price: "۸۸۰ افغانی",
     img: grass3,
   },
   {
+    id: 6,
     title: "گیاه طبیعی آنتوریوم",
-    price: "۴۹۸,۰۰۰ تومان",
+    price: "۴۹۸ افغانی",
     img: grass4,
   },
   {
+    id: 8,
     title: "گیاه طبیعی بونسای پاچیرا",
-    price: "۸۸۰,۰۰۰ تومان",
+    price: "۸۸۰افغانی",
     img: grass3,
   },
 ];

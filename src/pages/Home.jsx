@@ -14,6 +14,8 @@ import { grasses } from "../data/grasses";
 import { slide } from "../data/ornamental";
 import { grasses2 } from "../data/grasses2";
 import { slides2 } from "../data/gift";
+import { Link } from "react-router-dom";
+import ROUTES from "../router/routePath";
 
 function Home() {
   const plantNumber = [
@@ -56,7 +58,7 @@ function Home() {
                 گیاهان تخفیف دار
               </Button>
               <Button className="bg-transparent border-2 border-dashed border-primary hover:bg-transparent text-primary flex  items-center gap-2 justify-center font-medium text-xs md:text-lg">
-                <span>مشاوره با گیاه پزشک</span>
+                <Link to={ROUTES.DOCTOR}>مشاوره با گیاه پزشک</Link>
                 <LeftArrow />
               </Button>
             </div>
@@ -110,7 +112,13 @@ function Home() {
           {grasses.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="flex gap-10 bg-transparent items-center justify-center">
-                <Item2 bg={slide.img} title={slide.title} />
+                <Item2
+                  bg={slide.img}
+                  title={slide.title}
+                  price={slide.price}
+                  id={slide.id}
+                  img={slide.img}
+                />
               </div>
             </SwiperSlide>
           ))}
@@ -124,7 +132,13 @@ function Home() {
           {grasses2.map((slide, index) => (
             <SwiperSlide key={index}>
               <div className="flex gap-10 bg-transparent items-center justify-center">
-                <Item2 bg={slide.img} title={slide.title} />
+                <Item2
+                  bg={slide.img}
+                  title={slide.title}
+                  price={slide.price}
+                  id={slide.id}
+                  img={slide.img}
+                />
               </div>
             </SwiperSlide>
           ))}
