@@ -1,6 +1,6 @@
 import Button from "../Button";
 import { LeftArrow } from "../icons";
-import { useCartStore } from "../../store/cartStore";
+import useCartStore from "../../store/CartStore";
 import { useState, useEffect } from "react";
 
 import useAuthStore from "../../store/authStore";

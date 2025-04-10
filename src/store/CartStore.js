@@ -9,7 +9,7 @@ const saveToLocalStorage = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-export const useCartStore = create((set) => ({
+const useCartStore = create((set) => ({
   cart: getFromLocalStorage(),
 
   addToCart: (product) =>
@@ -65,3 +65,5 @@ export const useCartStore = create((set) => ({
     set({ cart: [] });
   },
 }));
+
+export default useCartStore;

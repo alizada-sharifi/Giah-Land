@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 import Button from "../../components/Button";
-import useStore from "../../store";
+import { profileStore } from "../../store";
 import { DashboardLayout } from "../../layouts";
 
 function Profile() {
   const { name, family, mobileNo, email, address, phoneNo, saveInfo } =
-    useStore();
+    profileStore();
 
   const [isLoaded, setIsLoaded] = useState(false);
   const [errors, setErrors] = useState({});

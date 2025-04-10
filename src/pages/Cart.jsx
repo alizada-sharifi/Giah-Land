@@ -1,6 +1,6 @@
 import EmptyCart from "../components/EmptyCart";
 import CartItem from "../components/CartItem";
-import { useCartStore } from "../store/cartStore";
+import useCartStore from "../store/CartStore";
 import { Button } from "../components";
 import { useNavigate } from "react-router-dom";
 import ROUTES from "../router/routePath";

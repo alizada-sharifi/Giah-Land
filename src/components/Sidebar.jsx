@@ -3,7 +3,7 @@ import { Email, Medication, User } from "./icons";
 import ROUTES from "../router/routePath";
 import { cn } from "../helpers/common";
 import { SignOut } from "./";
-import useStore from "../store";
+import { profileStore } from "../store";
 
 function Sidebar({ className }) {
   const sidebarList = [
@@ -23,7 +23,7 @@ function Sidebar({ className }) {
       href: ROUTES.MESSAGES,
     },
   ];
-  const { name, family, mobileNo } = useStore();
+  const { name, family, mobileNo } = profileStore();
   return (
     <div
       className={cn(

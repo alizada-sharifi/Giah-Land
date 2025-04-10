@@ -1,4 +1,4 @@
-import { useCartStore } from "../../store/cartStore";
+import useCartStore from "../../store/CartStore.js";
 import Button from "../Button";
 import { useEffect, useState } from "react";
 import ROUTES from "../../router/routePath";
@@ -10,7 +10,7 @@ function Item({ id, title, price, img }) {
   const cart = useCartStore((state) => state.cart);
 
   const [added, setAdded] = useState(false);
-  const { isLoggedIn } = useAuthStore;
+  const { isLoggedIn } = useAuthStore();
   useEffect(() => {
     const isProductInCart = cart.some((item) => item.id === id);
     setAdded(isProductInCart);

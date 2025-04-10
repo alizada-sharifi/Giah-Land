@@ -9,13 +9,13 @@ import Button from "./Button";
 import { Close } from "./icons";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from "../store/authStore";
-import useStore from "../store";
+import { profileStore } from "../store";
 
 function SignOut() {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const logout = useAuthStore((state) => state.logout);
-  const { removeInfo } = useStore();
+  const { removeInfo } = profileStore();
 
   const deleteLocalstorage = () => {
     localStorage.clear();
